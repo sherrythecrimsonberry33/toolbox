@@ -5,7 +5,7 @@ services:
     container_name: my_toolbox
     build: .
     volumes:
-      - "D:/lab4_400/toolbox/docker-compose.portainer.yml"
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - TZ=America/Edmonton
     restart: unless-stopped
