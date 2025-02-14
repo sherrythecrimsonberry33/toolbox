@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  toolbox:
+    container_name: my_toolbox
+    build: .
+    volumes:
+      - "${PWD}:/host"
+    environment:
+      - TZ=America/Edmonton
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
