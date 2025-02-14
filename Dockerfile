@@ -6,6 +6,15 @@ ARG GIT_VERSION_TAG=unspecified
 ARG GIT_COMMIT_MESSAGE=unspecified
 ARG GIT_VERSION_HASH=unspecified
 
+# Python integration
+RUN python3 -m pip install --no-cache-dir \
+    ipython \
+    pytest \
+    flake8 \
+    black \
+    mypy
+
+
 # Install updates and docker
 RUN apt-get -yq update && apt-get -yq install \
         curl \
