@@ -1,12 +1,12 @@
-version: '3.8'
-services:
 
-  # Building and testing environment
-  app:
-    image: ghcr.io/growlf/toolbox:testing
-    stdin_open: true
-    tty: true
-    command: ["/bin/zsh"]
+services:
+  toolbox:
+    container_name: my_toolbox_dev
+    build: .
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    network_mode: "host"
+    environment:
+      - TZ=America/Edmonton
+    restart: unless-stopped
+    ports:
+      - "9001:9001"
